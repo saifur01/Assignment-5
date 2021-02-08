@@ -25,7 +25,6 @@ const displayRecipe = (data) => {
         const mealDiv = document.createElement('div')
         mealDiv.className = "col-3 ms-2 mb-5 recipe"
         const discItem = `
-
         <div onclick="displayDetails('${element.strMeal}')">
        <img class="img-fluid" src=" ${element.trMealThumb}">
        <h5 class="mt-3">${element.strMeal}</h5>
@@ -39,7 +38,7 @@ const displayRecipe = (data) => {
 
 function displayDetails(recipeTittle){
     
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipeTittle}`
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
     fetch(url)
     .then(Response => Response.json()) 
     .then(data => displayIngredient(data))
@@ -54,7 +53,6 @@ function displayIngredient(details){
     <div class="recipe-content px-5 pb-2">
     <h2 class="pt-4">${element.strMeal}</h2>
     <h5 class="pt-2 pb-3">ingredient</h5>
-
     <p>${element.strMeasure1} ${element.strIngredient1} </p>
     <p>${element.strMeasure3} ${element.strIngredient3} </p>
     <p> ${element.strMeasure4} ${element.strIngredient4} </p>

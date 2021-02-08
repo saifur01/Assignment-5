@@ -1,35 +1,31 @@
-
-
 body{
-   
-    background-color: #d57d1f !important;
+    background-color: #EDD263 !important;
 }
-
-
 .recipe{
     background: white;
     border-radius: 10px;
+
 }
 .icon{
     color: #3B2D64;
-}
 
-
-#foodItem{
-    display: none;
 }
 #search-button{
-    background-color:#3B2D64 ;
+    background-color: #3B2D64;
     color: white;
-    border: none;
+    border:none;
 }
-
-
+.recipe-content{
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
 .food-img{
     border-radius: 10px 10px 0px 0px;
 }
-.inputBox{
-    background-color: white;
+.input-box{
+    background-color: wheat;
     border-radius: 10px;
 }
-
+input#search-input{
+    border: none;
+}
