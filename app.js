@@ -1,37 +1,41 @@
-const mealLink = "https://www.themealdb.com/api/json/v1/1/search.php";
-function recipeName (recipe){
-    const url = `${mealLink}? s= ${recipe}`;
+const mealLink = `https://www.themealdb.com/api/json/v1/1/search.php`;
+function searchMeal (recipe){
+    const url = `${mealLink}?s=${recipe}`;
+    // console.log(url);
     fetch (url)
-    .then(Response => Response.json())
+    .then(Res => Res.json())
     .then(data => displayRecipe(data))
-    .catch(error => alert("search correct meal name"))
+   
     
 }
-document.getElementById("search-button").addEventListener('click', () => {
-    const inputRecipe = document.getElementById("search-input").value;
-    if(inputRecipe === "") {
-        alert ("Enter your recipe name")
+document.getElementById("search-btn").addEventListener('click', () => {
+    const inputRecipe = document.getElementById("text-field").value;
+    if(inputRecipe == "") {
+       
     }
     else {
-     recipeName(inputRecipe);
+        searchMeal(inputRecipe);
     }
 
 });
 
 const displayRecipe = (data) => {
     const item = data.meals;
+    const recipes_Division = document.getElementById('recipes_Division');
+  
+    // console.log(recipes_Division);
     item.forEach((element) => {
-        const recipesDiv = document.getElementById('recipesDiv');
-        const mealDiv = document.createElement('div')
+        
+        const mealDiv = document.createElement('mealDiv')
         mealDiv.className = "col-3 ms-2 mb-5 recipe"
-        const discItem = `
+        const mealItem = `
         <div onclick="displayDetails('${element.strMeal}')">
-       <img class="img-fluid" src=" ${element.trMealThumb}">
+       <img class="img-fluid" src=" ${element.strMealThumb}">
        <h5 class="mt-3">${element.strMeal}</h5>
        </div>`
-       mealDIv.innerHTML = discItem;
-        recipesDiv.appendChild  (mealDiv);
-        document.getElementById("search-input").value = "";
+       mealDiv.innerHTML = mealItem;
+       recipes_Division.appendChild(mealDiv);
+       
        
     });
 }
@@ -40,13 +44,13 @@ function displayDetails(recipeTittle){
     
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
     fetch(url)
-    .then(Response => Response.json()) 
+    .then(Res => Res.json()) 
     .then(data => displayIngredient(data))
 }
 function displayIngredient(details){
-    const listItem = details.meals;
-    listItem.forEach(element =>{
-        const ingredient = document.getElementById('ingredient-list');
+    const li = details.meals;
+    list.forEach(element =>{
+        const ingredient = document.getElementById('ingredient_list');
         
         const ingredientList = `
         <img class="img-fluid food-img" src="${element.strMealThumb}">
@@ -66,7 +70,7 @@ function displayIngredient(details){
     
 
 
-ingredient.innerHTML = ingredientList;
+// ingredient.innerHTML = ingredientList;
 
     });
 
