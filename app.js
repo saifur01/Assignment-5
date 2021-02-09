@@ -70,7 +70,7 @@ function displayIngredient(details){
     
 
 
-// ingredient.innerHTML = ingredientList;
+
 
     });
 
